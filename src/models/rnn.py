@@ -7,7 +7,7 @@ import torch
 from torch import nn
 
 
-class BasicRNN(nn.Module):
+class RNN(nn.Module):
     def __init__(
             self, 
             input_size, 
@@ -15,9 +15,10 @@ class BasicRNN(nn.Module):
             hidden_dim, 
             n_layers,
             criterion, 
-            optimizer
+            optimizer: str="adam", 
+            learning_rate: float=0.01
         ):
-        super(BasicRNN, self).__init__()
+        super(RNN, self).__init__()
         # hidden dimension
         self.hidden_dim=hidden_dim
         # define an RNN with specified parameters
@@ -28,7 +29,10 @@ class BasicRNN(nn.Module):
         # create criterion
         self.criterion = criterion
         # create optimizer attribute
-        self.optimizer = optimizer
+        if optimizer.lower()=="adam":
+            self.optimizer = torch.optim.Adam(self.parameters(), lr=learning_rate) 
+        else:
+            self.optimizer = None
 
     def forward(self, x, hidden):
         # x (batch_size, seq_length, input_size)
@@ -74,3 +78,6 @@ class BasicRNN(nn.Module):
                 print('Loss: ', loss.item())
 
 
+if __name__=="__main__":
+    test_rnn = RNN(input_size=1, output_size=1, hidden_dim=10, n_layers=2, criterion=nn.MSELoss())
+    print(test_rnn)
