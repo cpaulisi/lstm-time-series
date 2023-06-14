@@ -68,14 +68,14 @@ class TimeSeriesRNN(nn.Module):
 
         if (self.train_on_gpu):
             hidden = weight.new(
-                    self.n_layers,
-                    batch_size,
-                    self.hidden_dim).zero_().cuda()
+                self.n_layers,
+                batch_size,
+                self.hidden_dim).zero_().cuda()
         else:
             hidden = weight.new(
-                    self.n_layers,
-                    batch_size,
-                    self.hidden_dim).zero_()
+                self.n_layers,
+                batch_size,
+                self.hidden_dim).zero_()
         return hidden
 
     def training_cycle(
