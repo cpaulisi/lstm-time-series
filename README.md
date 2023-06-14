@@ -8,7 +8,7 @@ The dataset used is derived from a store-sales dataset from Kaggle. The data is 
 
 ## Viewing Results and Running Models
 
-The jupyter notebooks located in the `src/models/notebooks/` folder can be run in order to initiate training for each of the models. Tensorboard results are saved in the `/notebooks/runs` folder, and can be accessed by running:
+The jupyter notebooks located in the `src/models/notebooks/` folder can be run in order to initiate training for each of the models. Tensorboard results are saved in the `/notebooks/runs` folder, and can be accessed by running
 
 ```bash
 cd src/models/notebooks/
@@ -16,3 +16,5 @@ tensorboard --logdir=runs
 ```
 
 which will then display modelling using a local host.
+
+![tensorboard](./resources/img/tensorboard.png)
