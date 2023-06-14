@@ -96,5 +96,5 @@ class TimeSeriesRNN(nn.Module):
 
 
 if __name__=="__main__":
-    test_rnn = RNN(input_size=1, output_size=1, hidden_dim=10, n_layers=2)
+    test_rnn = TimeSeriesRNN(input_size=1, output_size=1, hidden_dim=10, n_layers=2)
     print(test_rnn)
