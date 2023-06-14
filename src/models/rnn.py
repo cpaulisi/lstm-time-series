@@ -7,7 +7,7 @@ import torch
 from torch import nn
 
 
-class RNN(nn.Module):
+class TimeSeriesRNN(nn.Module):
     def __init__(
             self, 
             input_size, 
@@ -15,7 +15,7 @@ class RNN(nn.Module):
             hidden_dim, 
             n_layers
         ):
-        super(RNN, self).__init__()
+        super(TimeSeriesRNN, self).__init__()
         self = self.float()
         # hidden dimension
         self.hidden_dim=hidden_dim
